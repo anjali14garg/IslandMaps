@@ -82,51 +82,26 @@ export default class Listing extends Component {
   }
 
   componentWillMount() {
-    axios
-      .get(
-        'https://islandmapwp-teamarmentum.c9users.io/wp-json/wp/v2/business/'
-      )
-      .then(response =>
-        this.setState({
-          customers: response.data,
-        })
-      )
-      .catch(function(err) {
-        return err
-      })
+    this.getCustomers()
 
     axios
       .get(
         'https://islandmapwp-teamarmentum.c9users.io/wp-json/business/v2/categories/'
       )
-      .then(response =>
-        this.setState({
-          categories: response.data,
-        })
-      )
+      .then(response => this.setState({ categories: response.data }))
       .catch(function(err) {
         return err
       })
   }
 
   renderCustomers() {
-    if (this.state.selectedFilters.length > 0) {
-      return this.state.selectedFilters.map(customer =>
-        <AlbumDetail
-          key={customer.id}
-          customer={customer}
-          navigator={this.props.navigator}
-        />
-      )
-    } else {
-      return this.state.customers.map(customer =>
-        <AlbumDetail
-          key={customer.id}
-          customer={customer}
-          navigator={this.props.navigator}
-        />
-      )
-    }
+    return this.state.customers.map(customer =>
+      <AlbumDetail
+        key={customer.id}
+        customer={customer}
+        navigator={this.props.navigator}
+      />
+    )
   }
 
   _handleButtonPressMap = () => {
@@ -135,42 +110,38 @@ export default class Listing extends Component {
     })
   }
 
-  getItems = query => {
+  getCustomers = (query = '') => {
     axios
       .get(
         'https://islandmapwp-teamarmentum.c9users.io/wp-json/wp/v2/business?filter[categories]=' +
           query
       )
-      .then(response =>
-        this.setState({
-          selectedFilters: response.data,
-          open: false,
-        })
-      )
+      .then(response => this.setState({ customers: response.data }))
       .catch(function(err) {
         return err
       })
   }
 
-  _handleCategoryPress(category) {
-    const { categories } = this.state
+  _handleCategoryPress(filter) {
+    const { selectedFilters } = this.state
 
     // Check if category is already selected
-    const newCategories =
-      this.state.categories.indexOf(category) !== -1
-        ? categories.splice(categories.indexOf(category), 1)
-        : [...categories, category]
+    const newFilter =
+      selectedFilters.indexOf(filter) !== -1
+        ? selectedFilters.filter(a => a !== filter)
+        : [...selectedFilters, filter]
+
+    this.setState({ selectedFilters: newFilter })
 
     // Make category string, since we need all in one long string
-    let categoryQuery = ''
+    let filterString = ''
 
-    newCategories.map(cat => {
-      categoryQuery =
-        categoryQuery.length === 0 ? cat : `${categoryQuery},${cat}`
+    newFilter.map(cat => {
+      filterString = filterString.length === 0 ? cat : `${filterString},${cat}`
     })
 
     // Get items from server with category string
-    this.getItems(categoryQuery)
+    this.getCustomers(filterString)
   }
 
   render() {
@@ -282,7 +253,8 @@ export default class Listing extends Component {
                             style={{
                               borderWidth: 1,
                               borderColor:
-                                this.state.categories.indexOf(category) !== -1
+                                this.state.selectedFilters.indexOf(category) !==
+                                -1
                                   ? '#5ac9b2'
                                   : 'white',
                               borderRadius: 6,
@@ -291,7 +263,8 @@ export default class Listing extends Component {
                               marginRight: 1.5,
                               marginLeft: 1.5,
                               backgroundColor:
-                                this.state.categories.indexOf(category) !== -1
+                                this.state.selectedFilters.indexOf(category) !==
+                                -1
                                   ? '#5ac9b2'
                                   : 'transparent',
                               marginBottom: 20,
@@ -324,8 +297,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
   },
   header: {
-    flex: 0.8,
-    flex: 1.0,
+    flex: 1,
   },
   headerTitle: {
     flex: 0.5,
