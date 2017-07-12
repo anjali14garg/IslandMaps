@@ -62,7 +62,6 @@ export default class MapViews extends Component {
     lastLatitude:'unknown',
     lastLongitude:'unknown',
     status:false,
-    activeOption:'',
     selectedFilters:[]
   };
 
@@ -71,24 +70,6 @@ watchID: ?number = null;
       this.setState({
           hidden: !this.state.hidden
       });
-  };
-
-  toggle1 = () => {
-     this.setState({
-         hidden1: !this.state.hidden1,
-     });
-  };
-
-  toggle2 = () => {
-     this.setState({
-         hidden2: !this.state.hidden2,
-     });
-  };
-
-  toggle3 = () => {
-     this.setState({
-         hidden3: !this.state.hidden3,
-     });
   };
 
   closeControlPanel = () => {
@@ -118,44 +99,32 @@ watchID: ?number = null;
 
 
   componentWillMount() {
-    if(!this.state.activeOption){
-    axios.get('https://islandmapwp-teamarmentum.c9users.io/wp-json/wp/v2/business/')
-       .then(response => this.setState({
-         markers : response.data,
-         isLoading: false
-       }))
-       .catch(function(err) {
-          return err;
-        });
-      }
-    axios.get('https://islandmapwp-teamarmentum.c9users.io/wp-json/business/v2/categories/')
-    .then(response => this.setState({
-      categories : response.data,
-    }))
-    .catch(function(err) {
-       return err;
-     });
+    this.getCustomers();
+    axios
+      .get(
+        'https://islandmapwp-teamarmentum.c9users.io/wp-json/business/v2/categories/'
+      )
+      .then(response => this.setState({ categories: response.data }))
+      .catch(function(err) {
+        return err
+      })
+
+
     this.index = 0;
     this.animation = new Animated.Value(0);
   }
-  updateActiveOption = (activeOption) => {
-    this.setState({
-      activeOption,
-
-    });
-  };
-  onChange=(category) => {
-    console.log(category);
-
-    axios.get('https://islandmapwp-teamarmentum.c9users.io/wp-json/wp/v2/business?filter[categories]='+category)
-    .then(response => this.setState({
-      markers : response.data,
-    }))
-    .catch(function(err) {
-       return err;
-     });
-
+  getCustomers = (query = '') => {
+    axios
+      .get(
+        'https://islandmapwp-teamarmentum.c9users.io/wp-json/wp/v2/business?filter[categories]=' +
+          query
+      )
+      .then(response => this.setState({ markers: response.data }))
+      .catch(function(err) {
+        return err
+      })
   }
+
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
@@ -252,6 +221,27 @@ watchID: ?number = null;
 
   Share.open(shareOptions).catch((err) => { err && console.log(err); })
   };
+  _handleCategoryPress(filter) {
+    const { selectedFilters } = this.state
+
+    // Check if category is already selected
+    const newFilter =
+      selectedFilters.indexOf(filter) !== -1
+        ? selectedFilters.filter(a => a !== filter)
+        : [...selectedFilters, filter]
+
+    this.setState({ selectedFilters: newFilter })
+
+    // Make category string, since we need all in one long string
+    let filterString = ''
+
+    newFilter.map(cat => {
+      filterString = filterString.length === 0 ? cat : `${filterString},${cat}`
+    })
+
+    // Get items from server with category string
+    this.getCustomers(filterString)
+  }
 
 
   render() {
@@ -438,28 +428,39 @@ console.log(this.state)
             <View style={{ backgroundColor: 'transparent', top:-170,}}>
             <GridView
               items={this.state.categories}
-
-              renderItem={category => (
-                <View style={{top:30}}>
-                  <TouchableHighlight underlayColor = {'transparent'} onPress={() => {
-                    this.onChange(category);
-                    this.updateActiveOption(category)}}>
-                  <Text style={{borderWidth: 1,
-                    borderColor: this.state.activeOption === category ? '#5ac9b2' : 'white',
-                    borderRadius: 6,
-                    padding:10,
-                    color:'white',
-                    marginRight:1.5,
-                    marginLeft:1.5,
-                    backgroundColor: this.state.activeOption === category ? '#5ac9b2' : 'transparent',
-                    borderWidth:0.5,
-                    borderRadius:2,
-                    marginBottom:20,
-                    fontWeight: '600',
-                  }}>{category}</Text>
+              renderItem={category =>
+                <View style={{ top: 30 }}>
+                  <TouchableHighlight
+                    underlayColor={'transparent'}
+                    onPress={() => this._handleCategoryPress(category)}
+                  >
+                    <Text
+                      style={{
+                        borderWidth: 1,
+                        borderColor:
+                          this.state.selectedFilters.indexOf(category) !==
+                          -1
+                            ? '#5ac9b2'
+                            : 'white',
+                        borderRadius: 2,
+                        textAlign:'center',
+                        padding: 10,
+                        color: 'white',
+                        marginRight: 1.5,
+                        marginLeft: 1.5,
+                        backgroundColor:
+                          this.state.selectedFilters.indexOf(category) !==
+                          -1
+                            ? '#5ac9b2'
+                            : 'transparent',
+                        marginBottom: 20,
+                        fontWeight: '600',
+                      }}
+                    >
+                      {category}
+                    </Text>
                   </TouchableHighlight>
-                </View>
-              )}
+                </View>}
             />
             </View>
         </Modal>
@@ -481,6 +482,7 @@ const styles = StyleSheet.create({
     bottom: 10,
     left: 0,
     right: 0,
+    marginLeft:10,
     paddingVertical: 10,
   },
   endPadding: {
@@ -509,6 +511,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     backgroundColor:'transparent',
     color:'white',
+    marginLeft:10
   },
 
   markerWrap: {

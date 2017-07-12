@@ -33,9 +33,6 @@ import axios from 'axios'
 import AlbumDetail from './AlbumDetail'
 import Communications from 'react-native-communications'
 import GridView from 'react-native-super-grid'
-import Collection from 'react-native-collection'
-import Cell from './Cell'
-import CustomMultiPicker from 'react-native-multiple-select-list'
 
 var width = Dimensions.get('window').width //full width
 var height = Dimensions.get('window').height
@@ -48,25 +45,6 @@ export default class Listing extends Component {
     customers: [],
     categories: [],
     selectedFilters: [],
-  }
-
-  constructor(props) {
-    super(props)
-    this.leftHandler = this.leftHandler.bind(this)
-    this.rightHandler = this.rightHandler.bind(this)
-    this.tapHandler = this.tapHandler.bind(this)
-  }
-
-  tapHandler(param: Object) {
-    console.log('item tapped' + param)
-  }
-
-  leftHandler(param: Object) {
-    console.log('left button clicked')
-  }
-
-  rightHandler(param: Object) {
-    console.log('right button clicked: ' + param)
   }
 
   closeControlPanel = () => {
@@ -257,8 +235,9 @@ export default class Listing extends Component {
                                 -1
                                   ? '#5ac9b2'
                                   : 'white',
-                              borderRadius: 6,
+                              borderRadius: 2,
                               padding: 10,
+                              textAlign:'center',
                               color: 'white',
                               marginRight: 1.5,
                               marginLeft: 1.5,
