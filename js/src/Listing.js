@@ -64,7 +64,7 @@ export default class Listing extends Component {
 
     axios
       .get(
-        'https://islandmapwp-teamarmentum.c9users.io/wp-json/business/v2/categories/'
+        'https://demo.armentum.co/islandmap/wp-json/business/v2/categories/'
       )
       .then(response => this.setState({ categories: response.data }))
       .catch(function(err) {
@@ -91,7 +91,7 @@ export default class Listing extends Component {
   getCustomers = (query = '') => {
     axios
       .get(
-        'https://islandmapwp-teamarmentum.c9users.io/wp-json/wp/v2/business?filter[categories]=' +
+        'https://demo.armentum.co/islandmap/wp-json/wp/v2/business?filter[categories]=' +
           query
       )
       .then(response => this.setState({ customers: response.data }))
@@ -218,11 +218,11 @@ export default class Listing extends Component {
                 modalDidClose={() => this.setState({ open: false })}
                 style={{ alignItems: 'center' }}
               >
-                <View style={{ backgroundColor: 'transparent', top: -170 }}>
+                <View style={{ backgroundColor: 'transparent', }}>
                   <GridView
                     items={this.state.categories}
                     renderItem={category =>
-                      <View style={{ top: 30 }}>
+                      <View>
                         <TouchableHighlight
                           underlayColor={'transparent'}
                           onPress={() => this._handleCategoryPress(category)}
@@ -246,7 +246,6 @@ export default class Listing extends Component {
                                 -1
                                   ? '#5ac9b2'
                                   : 'transparent',
-                              marginBottom: 20,
                               fontWeight: '600',
                             }}
                           >
@@ -300,6 +299,7 @@ const styles = StyleSheet.create({
   headerNavImg: {
     flex: 0.1,
     justifyContent: 'center',
+
   },
   hNavImg: {
     flex: 0.1,
@@ -315,6 +315,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderColor: 'white',
     borderTopWidth: 0.5,
+    borderBottomWidth: 0.5,
   },
   headerButton: {
     flex: 0.25,

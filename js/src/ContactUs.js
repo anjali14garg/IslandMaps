@@ -87,7 +87,7 @@ keyboardDidHide(e) {
 
   _handleButtonPress = () => {
 
-  axios.post('https://islandmapwp-teamarmentum.c9users.io/wp-json/business/v2/contact_us/?name='+this.state.name+'&email='+this.state.email+'&phone='+this.state.contact+'&content='+this.state.knowCompany)
+  axios.post('https://demo.armentum.co/islandmap/wp-json/business/v2/contact_us/?name='+this.state.name+'&email='+this.state.email+'&phone='+this.state.contact+'&content='+this.state.knowCompany)
   .then(function (response) {
     if(response.status=='200'){
       Alert.alert(

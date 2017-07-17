@@ -78,7 +78,7 @@ export default class DetailView extends Component {
       let selected=this.props.id;
       console.log(selected);
       // axios.get('http://192.168.0.23:3000/Bussiness/'+selected)
-      axios.get('https://islandmapwp-teamarmentum.c9users.io/wp-json/wp/v2/business/'+selected)
+      axios.get('https://demo.armentum.co/islandmap/wp-json/wp/v2/business/'+selected)
       .then(response => this.setState({
         customerDetail : response.data,
 
@@ -88,7 +88,7 @@ export default class DetailView extends Component {
        });
        let latitude=this.props.lat;
        let longitude=this.props.long;
-       axios.get('https://islandmapwp-teamarmentum.c9users.io/wp-json/business/v2/nearby?latitude='+latitude+'&longitude='+longitude+'&miles=10')
+       axios.get('https://demo.armentum.co/islandmap/wp-json/business/v2/nearby?latitude='+latitude+'&longitude='+longitude+'&miles=2')
        .then(response => this.setState({
          nearByPlaces : response.data,
 

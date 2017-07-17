@@ -66,11 +66,6 @@ export default class MapViews extends Component {
   };
 
 watchID: ?number = null;
-  toggle = () => {
-      this.setState({
-          hidden: !this.state.hidden
-      });
-  };
 
   closeControlPanel = () => {
   this._drawer.close()
@@ -102,7 +97,7 @@ watchID: ?number = null;
     this.getCustomers();
     axios
       .get(
-        'https://islandmapwp-teamarmentum.c9users.io/wp-json/business/v2/categories/'
+        'https://demo.armentum.co/islandmap/wp-json/business/v2/categories/'
       )
       .then(response => this.setState({ categories: response.data }))
       .catch(function(err) {
@@ -116,7 +111,7 @@ watchID: ?number = null;
   getCustomers = (query = '') => {
     axios
       .get(
-        'https://islandmapwp-teamarmentum.c9users.io/wp-json/wp/v2/business?filter[categories]=' +
+        'https://demo.armentum.co/islandmap/wp-json/wp/v2/business?filter[categories]=' +
           query
       )
       .then(response => this.setState({ markers: response.data }))
@@ -414,22 +409,24 @@ console.log(this.state)
 
       </Animated.ScrollView>
       <Modal
-            offset={0}
-            borderColor={'transparent'}
-            open={this.state.open}
-            modalStyle={{
-               borderRadius: 0,
-               backgroundColor: 'transparent'
-            }}
-            overlayBackground={'rgba(0, 0, 0, 0.70)'}
-            modalDidOpen={() => console.log('modal did open')}
-            modalDidClose={() => this.setState({open: false})}
-            style={{alignItems: 'center', }}>
-            <View style={{ backgroundColor: 'transparent', top:-170,}}>
+      offset={0}
+      borderColor={'transparent'}
+      open={this.state.open}
+      visible={this.state.modalVisible}
+      modalStyle={{
+        borderRadius: 0,
+        backgroundColor: 'transparent',
+      }}
+      overlayBackground={'rgba(0, 0, 0, 0.70)'}
+      modalDidOpen={() => console.log('modal did open')}
+      modalDidClose={() => this.setState({ open: false })}
+      style={{ alignItems: 'center' }}
+    >
+      <View style={{ backgroundColor: 'transparent', }}>
             <GridView
               items={this.state.categories}
               renderItem={category =>
-                <View style={{ top: 30 }}>
+                <View>
                   <TouchableHighlight
                     underlayColor={'transparent'}
                     onPress={() => this._handleCategoryPress(category)}
@@ -453,7 +450,7 @@ console.log(this.state)
                           -1
                             ? '#5ac9b2'
                             : 'transparent',
-                        marginBottom: 20,
+
                         fontWeight: '600',
                       }}
                     >

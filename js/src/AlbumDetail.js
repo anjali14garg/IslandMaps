@@ -28,6 +28,21 @@ import {
     dist = dist * 60 * 1.1515
     return dist.toFixed(2)
 }
+function convertHTMLEntity(text){
+  // var text = React.createElement("textarea");
+  //     text.innerHTML = html;
+  //     return text.value;
+  /*
+    const span = document.createElement('span');
+
+    return text
+    .replace(/&[#A-Za-z0-9]+;/gi, (entity,position,text)=> {
+        span.innerHTML = entity;
+        return span.innerText;
+    });*/
+
+    return text;
+}
 
   class AlbumDetail extends Component{
     state = {
@@ -114,7 +129,7 @@ import {
       <Card>
         <View style={styles.ListbannerView}>
           <Image style={styles.BannerImg} source={{uri:this.props.customer.banner}}>
-            <Text style={styles.ListTitle}> {this.props.customer.businessname.toUpperCase()} </Text>
+            <Text style={styles.ListTitle}>{convertHTMLEntity(this.props.customer.businessname.toUpperCase())} </Text>
           </Image>
         </View>
         <View style={styles.ListBottom}>
