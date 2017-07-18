@@ -51,8 +51,8 @@ export default class MapViews extends Component {
     region: {
       latitude: 19.320325,
       longitude: -81.127414,
-      latitudeDelta: 0.60,
-      longitudeDelta: 0.60,
+      latitudeDelta: 0.40,
+      longitudeDelta: 0.40,
     },
     drawerOpen: false,
     drawerDisabled: false,
@@ -62,7 +62,8 @@ export default class MapViews extends Component {
     lastLatitude:'unknown',
     lastLongitude:'unknown',
     status:false,
-    selectedFilters:[]
+    selectedFilters:[],
+    categories:[]
   };
 
 watchID: ?number = null;
@@ -248,7 +249,7 @@ watchID: ?number = null;
       ];
       const scale = this.animation.interpolate({
         inputRange,
-        outputRange: [1, 2.5, 1],
+        outputRange: [1, 1.5, 1],
         extrapolate: "clamp",
       });
       const opacity = this.animation.interpolate({
@@ -324,15 +325,19 @@ console.log(this.state)
               },
             ],
           };
-          const opacityStyle = {
-            opacity: interpolations[index].opacity,
-          };
           return (
             <MapView.Marker key={index} coordinate={marker.coordinate}>
-              <Animated.View style={[styles.markerWrap, opacityStyle]}>
-                <Animated.View style={[styles.ring, scaleStyle]} />
-                <View style={styles.marker} />
+              <Animated.View style={[styles.markerWrap, scaleStyle]}>
+
+                <View>
+                  <Image source={require('../img/Pin_small.png')}>
+                <View >
+                  <Image source={{uri:marker.marker_url}} style={{height:30,width:35, alignSelf:'center'}}></Image>
+                </View>
+                </Image>
+                </View>
               </Animated.View>
+
             </MapView.Marker>
           );
         })}
@@ -409,58 +414,57 @@ console.log(this.state)
 
       </Animated.ScrollView>
       <Modal
-      offset={0}
-      borderColor={'transparent'}
-      open={this.state.open}
-      visible={this.state.modalVisible}
-      modalStyle={{
-        borderRadius: 0,
-        backgroundColor: 'transparent',
-      }}
-      overlayBackground={'rgba(0, 0, 0, 0.70)'}
-      modalDidOpen={() => console.log('modal did open')}
-      modalDidClose={() => this.setState({ open: false })}
-      style={{ alignItems: 'center' }}
-    >
-      <View style={{ backgroundColor: 'transparent', }}>
-            <GridView
-              items={this.state.categories}
-              renderItem={category =>
-                <View>
-                  <TouchableHighlight
-                    underlayColor={'transparent'}
-                    onPress={() => this._handleCategoryPress(category)}
+        offset={0}
+        borderColor={'transparent'}
+        open={this.state.open}
+        visible={this.state.modalVisible}
+        modalStyle={{
+          borderRadius: 0,
+          backgroundColor: 'transparent',
+        }}
+        overlayBackground={'rgba(0, 0, 0, 0.70)'}
+        modalDidOpen={() => console.log('modal did open')}
+        modalDidClose={() => this.setState({ open: false })}
+        style={{ alignItems: 'center' }}
+      >
+        <View style={{ backgroundColor: 'transparent', }}>
+          <GridView
+            items={this.state.categories}
+            renderItem={category =>
+              <View>
+                <TouchableHighlight
+                  underlayColor={'transparent'}
+                  onPress={() => this._handleCategoryPress(category)}
+                >
+                  <Text
+                    style={{
+                      borderWidth: 1,
+                      borderColor:
+                        this.state.selectedFilters.indexOf(category) !==
+                        -1
+                          ? '#5ac9b2'
+                          : 'white',
+                      borderRadius: 2,
+                      padding: 10,
+                      textAlign:'center',
+                      color: 'white',
+                      marginRight: 1.5,
+                      marginLeft: 1.5,
+                      backgroundColor:
+                        this.state.selectedFilters.indexOf(category) !==
+                        -1
+                          ? '#5ac9b2'
+                          : 'transparent',
+                      fontWeight: '600',
+                    }}
                   >
-                    <Text
-                      style={{
-                        borderWidth: 1,
-                        borderColor:
-                          this.state.selectedFilters.indexOf(category) !==
-                          -1
-                            ? '#5ac9b2'
-                            : 'white',
-                        borderRadius: 2,
-                        textAlign:'center',
-                        padding: 10,
-                        color: 'white',
-                        marginRight: 1.5,
-                        marginLeft: 1.5,
-                        backgroundColor:
-                          this.state.selectedFilters.indexOf(category) !==
-                          -1
-                            ? '#5ac9b2'
-                            : 'transparent',
-
-                        fontWeight: '600',
-                      }}
-                    >
-                      {category}
-                    </Text>
-                  </TouchableHighlight>
-                </View>}
-            />
-            </View>
-        </Modal>
+                    {category}
+                  </Text>
+                </TouchableHighlight>
+              </View>}
+          />
+        </View>
+      </Modal>
       </View>
       </Drawer>
       </View>
@@ -528,7 +532,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(130,4,150, 0.3)",
     position: "absolute",
     borderWidth: 1,
-    borderColor: "rgba(130,4,150, 0.5)",
+    borderColor: "#59acb2",
   },
   ListbannerView:{
      flex:3,

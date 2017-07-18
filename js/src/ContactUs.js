@@ -25,14 +25,11 @@ import {
   Dimensions,
   BackHandler, Keyboard
 } from 'react-native';
-
-
-
 import Drawer from 'react-native-drawer';
 import SideMenu from './SideMenu.js';
 import DetailView from './DetailView.js';
 import axios from 'axios';
-
+import Toast, {DURATION} from 'react-native-easy-toast'
 
 export default class ContactUs extends Component {
 
@@ -85,8 +82,21 @@ keyboardDidHide(e) {
     this.refs.scrollView.scrollTo({y: 0});
 }
 
+
   _handleButtonPress = () => {
 
+    let reg = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/ ;
+      if(reg.test(this.state.email) === false)
+      {
+      this.refs.toast.show('Email is Not Correct',DURATION.LENGTH_LONG);
+      console.log("Email is Not Correct");
+      this.setState({email:this.state.email})
+      return false;
+        }
+      else {
+        this.setState({email:this.state.email})
+        console.log("Email is Correct");
+      }
   axios.post('https://demo.armentum.co/islandmap/wp-json/business/v2/contact_us/?name='+this.state.name+'&email='+this.state.email+'&phone='+this.state.contact+'&content='+this.state.knowCompany)
   .then(function (response) {
     if(response.status=='200'){
@@ -98,6 +108,10 @@ keyboardDidHide(e) {
     console.log(response);
   })
   .catch(function (error) {
+    Alert.alert(
+      'Error',
+      'Please enter all the fields',
+    );
     console.log(error);
   });
   this.setState({
@@ -171,7 +185,18 @@ keyboardDidHide(e) {
                  style={styles.txtinput}
                  value={this.state.name}
                  onChangeText={name => this.setState({ name })}
+
                  />
+                 <Toast
+                   ref="toastname"
+                   style={{backgroundColor:'red'}}
+                   position='top'
+                   positionValue={500}
+                   fadeInDuration={750}
+                   fadeOutDuration={1000}
+                   opacity={0.8}
+                   textStyle={{color:'white'}}
+               />
 
       <Text style={styles.txt}>{'enter email id'.toUpperCase()}</Text>
       <TextInput returnKeyType="next"
@@ -182,6 +207,16 @@ keyboardDidHide(e) {
                  value={this.state.email}
                  onChangeText={email => this.setState({ email })}
                  />
+                 <Toast
+                   ref="toast"
+                   style={{backgroundColor:'red'}}
+                   position='top'
+                   positionValue={100}
+                   fadeInDuration={750}
+                   fadeOutDuration={1000}
+                   opacity={0.8}
+                   textStyle={{color:'white'}}
+               />
 
       <Text style={styles.txt}>{'enter contact number'.toUpperCase()}</Text>
       <TextInput returnKeyType="next"
@@ -205,6 +240,7 @@ keyboardDidHide(e) {
                  value={this.state.knowCompany}
                  onChangeText={knowCompany => this.setState({ knowCompany })}
                  />
+
 </ScrollView>
 
       <TouchableHighlight style={styles.touchSubmit} position={'fixed'} onPress={this._handleButtonPress}>

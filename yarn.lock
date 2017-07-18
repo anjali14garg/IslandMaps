@@ -3012,6 +3012,16 @@ react-native-drawer@^2.3.0:
   dependencies:
     tween-functions "^1.0.1"
 
+react-native-easy-toast@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-easy-toast/-/react-native-easy-toast-1.0.6.tgz#e9e2a0c865fcfdb407dbc2341bc3571a7f5da3b5"
+
+react-native-form-validator@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/react-native-form-validator/-/react-native-form-validator-0.1.3.tgz#d08ce76cae87e54dfda986a5c6460248cfc01e87"
+  dependencies:
+    moment "2.x.x"
+
 react-native-google-maps-directions@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-native-google-maps-directions/-/react-native-google-maps-directions-1.1.0.tgz#4f48ac2958501dd4b29e4f607ddc30d6af9e5391"
@@ -3060,6 +3070,10 @@ react-native-simple-modal@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/react-native-simple-modal/-/react-native-simple-modal-5.1.1.tgz#06bfaf78d6ad3c6ee6605f75637ac4d635e16a10"
 
+react-native-simple-toast@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-simple-toast/-/react-native-simple-toast-0.0.6.tgz#f1ddb2c07c192cf2b75b860d283028a0769b2f72"
+
 react-native-smart-scroll-view@^1.3.7:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/react-native-smart-scroll-view/-/react-native-smart-scroll-view-1.3.7.tgz#b5a090d16490e0173cb61b0cd359c2faa0f82bcd"
@@ -3077,6 +3091,10 @@ react-native-tab-view@^0.0.65:
 react-native-toggle@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/react-native-toggle/-/react-native-toggle-1.0.3.tgz#87097cc6539d273b9dba67f4c64a320ade5851a2"
+
+react-native-validator-form@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-validator-form/-/react-native-validator-form-0.2.0.tgz#6b0e2150609a1279b739c6ba3d267eb9f659b3d1"
 
 react-native-vector-icons@^3.0.0:
   version "3.0.0"
