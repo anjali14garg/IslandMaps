@@ -13,8 +13,8 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* IslandMapTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* IslandMapTests.m */; };
+		0F20F0801F20FCDF0068A47F /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F20F07F1F20FCA40068A47F /* libAirMaps.a */; };
 		0F96FEC71EE6DD560034077D /* Splash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F96FEC61EE6DD560034077D /* Splash.jpg */; };
-		0FAF13071EE01DC000BB41B4 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FAF12ED1EE01D2800BB41B4 /* libAirMaps.a */; };
 		0FD86D661EE1364900F8DC2C /* libRNImmediatePhoneCall.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FAF130D1EE05C4D00BB41B4 /* libRNImmediatePhoneCall.a */; };
 		0FD86D671EE1364900F8DC2C /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD86D651EE1362100F8DC2C /* libRNShare.a */; };
 		0FD86D6A1EE1368000F8DC2C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD86D691EE1368000F8DC2C /* Social.framework */; };
@@ -29,6 +29,7 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		63E7CC6EDE153EF18EC91DEA /* libPods-IslandMap.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A6F954B41C74557F38AF803 /* libPods-IslandMap.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
 
@@ -75,9 +76,16 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = IslandMap;
 		};
-		0FAF12EC1EE01D2800BB41B4 /* PBXContainerItemProxy */ = {
+		0F20F07E1F20FCA40068A47F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 0FAF12E81EE01D2800BB41B4 /* AirMaps.xcodeproj */;
+			containerPortal = 0F20F07A1F20FCA40068A47F /* AirMaps.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
+			remoteInfo = AirMaps;
+		};
+		0F20F1DB1F20FDB60068A47F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F20F1D71F20FDB50068A47F /* AirMaps.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 11FA5C511C4A1296003AC2EE;
 			remoteInfo = AirMaps;
@@ -248,9 +256,11 @@
 		00E356EE1AD99517003FC87E /* IslandMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IslandMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* IslandMapTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IslandMapTests.m; sourceTree = "<group>"; };
+		0A6F954B41C74557F38AF803 /* libPods-IslandMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IslandMap.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F20F07A1F20FCA40068A47F /* AirMaps.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../../Armentum/IslandMap/node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
+		0F20F1D71F20FDB50068A47F /* AirMaps.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		0F45089C1EEA766000B64497 /* IslandMap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = IslandMap.entitlements; path = IslandMap/IslandMap.entitlements; sourceTree = "<group>"; };
 		0F96FEC61EE6DD560034077D /* Splash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Splash.jpg; sourceTree = "<group>"; };
-		0FAF12E81EE01D2800BB41B4 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		0FAF13081EE05C4D00BB41B4 /* RNImmediatePhoneCall.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImmediatePhoneCall.xcodeproj; path = "../node_modules/react-native-immediate-phone-call/ios/RNImmediatePhoneCall.xcodeproj"; sourceTree = "<group>"; };
 		0FD86D451EE1362100F8DC2C /* RNShare.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNShare.xcodeproj; path = "../node_modules/react-native-share/ios/RNShare.xcodeproj"; sourceTree = "<group>"; };
 		0FD86D691EE1368000F8DC2C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -268,6 +278,8 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		C2E04328A553102C296535D1 /* Pods-IslandMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IslandMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-IslandMap/Pods-IslandMap.release.xcconfig"; sourceTree = "<group>"; };
+		DE8831B79FB794D0CA59F107 /* Pods-IslandMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IslandMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IslandMap/Pods-IslandMap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,11 +295,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F20F0801F20FCDF0068A47F /* libAirMaps.a in Frameworks */,
 				0FD86D6C1EE1368E00F8DC2C /* MessageUI.framework in Frameworks */,
 				0FD86D6A1EE1368000F8DC2C /* Social.framework in Frameworks */,
 				0FD86D661EE1364900F8DC2C /* libRNImmediatePhoneCall.a in Frameworks */,
 				0FD86D671EE1364900F8DC2C /* libRNShare.a in Frameworks */,
-				0FAF13071EE01DC000BB41B4 /* libAirMaps.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
@@ -299,6 +311,7 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				63E7CC6EDE153EF18EC91DEA /* libPods-IslandMap.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,10 +377,34 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0FAF12E91EE01D2800BB41B4 /* Products */ = {
+		0F20F05D1F20FC6C0068A47F /* AirMaps */ = {
 			isa = PBXGroup;
 			children = (
-				0FAF12ED1EE01D2800BB41B4 /* libAirMaps.a */,
+				0F20F05E1F20FC6C0068A47F /* Callout */,
+			);
+			name = AirMaps;
+			path = "../node_modules/react-native-maps/lib/ios/AirMaps";
+			sourceTree = "<group>";
+		};
+		0F20F05E1F20FC6C0068A47F /* Callout */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Callout;
+			sourceTree = "<group>";
+		};
+		0F20F07B1F20FCA40068A47F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0F20F07F1F20FCA40068A47F /* libAirMaps.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0F20F1D81F20FDB50068A47F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0F20F1DC1F20FDB60068A47F /* libAirMaps.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -391,8 +428,11 @@
 		0FD86D681EE1368000F8DC2C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F20F07A1F20FCA40068A47F /* AirMaps.xcodeproj */,
+				0F20F05D1F20FC6C0068A47F /* AirMaps */,
 				0FD86D6B1EE1368E00F8DC2C /* MessageUI.framework */,
 				0FD86D691EE1368000F8DC2C /* Social.framework */,
+				0A6F954B41C74557F38AF803 /* libPods-IslandMap.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -467,9 +507,9 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				0F20F1D71F20FDB50068A47F /* AirMaps.xcodeproj */,
 				0FD86D451EE1362100F8DC2C /* RNShare.xcodeproj */,
 				0FAF13081EE05C4D00BB41B4 /* RNImmediatePhoneCall.xcodeproj */,
-				0FAF12E81EE01D2800BB41B4 /* AirMaps.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -502,6 +542,7 @@
 				00E356EF1AD99517003FC87E /* IslandMapTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				0FD86D681EE1368000F8DC2C /* Frameworks */,
+				8CAE6D80CA394A312E37F02B /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -514,6 +555,15 @@
 				00E356EE1AD99517003FC87E /* IslandMapTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8CAE6D80CA394A312E37F02B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DE8831B79FB794D0CA59F107 /* Pods-IslandMap.debug.xcconfig */,
+				C2E04328A553102C296535D1 /* Pods-IslandMap.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,10 +591,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "IslandMap" */;
 			buildPhases = (
+				7F7F8285179555C7566452CC /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				5E8191C6CB4B712ED4394E7D /* [CP] Embed Pods Frameworks */,
+				55BEAE1762FCD2A314CC2BE5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -601,8 +654,12 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 0FAF12E91EE01D2800BB41B4 /* Products */;
-					ProjectRef = 0FAF12E81EE01D2800BB41B4 /* AirMaps.xcodeproj */;
+					ProductGroup = 0F20F07B1F20FCA40068A47F /* Products */;
+					ProjectRef = 0F20F07A1F20FCA40068A47F /* AirMaps.xcodeproj */;
+				},
+				{
+					ProductGroup = 0F20F1D81F20FDB50068A47F /* Products */;
+					ProjectRef = 0F20F1D71F20FDB50068A47F /* AirMaps.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
@@ -701,11 +758,18 @@
 			remoteRef = 00C302E31ABCB9EE00DB3ED1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		0FAF12ED1EE01D2800BB41B4 /* libAirMaps.a */ = {
+		0F20F07F1F20FCA40068A47F /* libAirMaps.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libAirMaps.a;
-			remoteRef = 0FAF12EC1EE01D2800BB41B4 /* PBXContainerItemProxy */;
+			remoteRef = 0F20F07E1F20FCA40068A47F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0F20F1DC1F20FDB60068A47F /* libAirMaps.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAirMaps.a;
+			remoteRef = 0F20F1DB1F20FDB60068A47F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		0FAF130D1EE05C4D00BB41B4 /* libRNImmediatePhoneCall.a */ = {
@@ -899,6 +963,51 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
 		};
+		55BEAE1762FCD2A314CC2BE5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IslandMap/Pods-IslandMap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E8191C6CB4B712ED4394E7D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-IslandMap/Pods-IslandMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F7F8285179555C7566452CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -981,6 +1090,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE8831B79FB794D0CA59F107 /* Pods-IslandMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1003,6 +1113,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2E04328A553102C296535D1 /* Pods-IslandMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;

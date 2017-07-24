@@ -1,0 +1,11 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+target 'IslandMap' do
+ 
+  react_native_path = "../node_modules/react-native"
+  pod "Yoga", :path => "#{react_native_path}/ReactCommon/yoga"
+  pod "React", :path => react_native_path
+ 
+  
+end

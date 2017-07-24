@@ -20,7 +20,7 @@
 		"react-native-google-maps-directions": "^1.1.0",
 		"react-native-immediate-phone-call": "^0.1.0",
 		"react-native-keyboard-aware-scroll-view": "^0.2.9",
-		"react-native-maps": "^0.15.2",
+		"react-native-maps": "^0.15.3",
 		"react-native-multiple-select": "^0.2.1",
 		"react-native-multiple-select-list": "^1.0.4",
 		"react-native-phone-call": "^1.0.2",
